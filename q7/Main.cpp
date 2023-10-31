@@ -20,7 +20,7 @@ int main() {
 
     sort(A, A + N);
 
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < Q; i++) {
         int posR = lower_bound(A, A + N, B[i]) - A;
         int diffL = INF, diffR = INF;
         if (posR <= N - 1)
