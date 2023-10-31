@@ -1,0 +1,9 @@
+{
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.associations": {
+    "*.tsx": "typescriptreact",
+    "*.js": "javascript",
+    "ios": "cpp"
+  },
+  "C_Cpp.clang_format_style": "{ BreakBeforeBraces: Attach, IndentWidth: 4 }"
+}
