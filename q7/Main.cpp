@@ -15,7 +15,7 @@ int main() {
 
     cin >> Q;
 
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < Q; i++)
         cin >> B[i];
 
     sort(A, A + N);
@@ -23,10 +23,13 @@ int main() {
     for (int i = 0; i < Q; i++) {
         int posR = lower_bound(A, A + N, B[i]) - A;
         int diffL = INF, diffR = INF;
-        if (posR <= N - 1)
+        if (posR <= N - 1) {
             diffR = abs(B[i] - A[posR]);
-        if (posR >= 1)
+        }
+
+        if (posR >= 1) {
             diffL = abs(B[i] - A[posR - 1]);
+        }
 
         cout << min(diffL, diffR) << endl;
     }
