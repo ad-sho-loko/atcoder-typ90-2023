@@ -4,3 +4,4 @@ a.out
 *.obj
 *.pdb
 Main
+test/
