@@ -20,12 +20,14 @@ int main() {
         for (int i = 1; i < N + 1; i++) {
             if (S[i - 1] == "atcoder"[j - 1]) {
                 dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1];
+                if (dp[i][j] >= MOD)
+                    dp[i][j] -= MOD;
             } else {
                 dp[i][j] = dp[i - 1][j];
             }
         }
     }
 
-    cout << dp[N][7] % 1000000007 << endl;
+    cout << dp[N][7] << endl;
     return 0;
 }
