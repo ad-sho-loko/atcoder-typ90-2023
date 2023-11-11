@@ -82,19 +82,22 @@ int main() {
 
         // 選ばない
         for (int w = 0; w <= W; w++) {
-            dp[i][w] = dp[i - 1][w];
+            dp[i][w] = max(dp[i - 1][w], dp[i][w]);
         }
 
         // 選ぶ
         for (int w = 0; w <= W; w++) {
-            if (w - R >= 0 && w - L + 1 <= W) {
-                dp[i][w] = max(seg[i - 1].range_max(w - R, w - L + 1) + V,
-                               dp[i - 1][w]);
+            int left = w - R;
+            int right = w - L + 1;
+            long long rangeMax = seg[i - 1].range_max(left, right);
+            if (rangeMax != 0 &&
+                ((left >= 0 && left <= W) || (right >= 0 && right <= W))) {
+                dp[i][w] =
+                    max(seg[i - 1].range_max(left, right) + V, dp[i - 1][w]);
             }
         }
 
         for (int w = 0; w <= W; w++) {
-            printf("(%d,%d) => %lld\n", i, w, dp[i][w]);
             seg[i].update(w, w + 1, dp[i][w]);
         }
     }
