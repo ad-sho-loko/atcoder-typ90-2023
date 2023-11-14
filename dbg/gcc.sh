@@ -1,5 +1,5 @@
 # 未定義動作（配列外アクセスなど）のデバッグをする場合
-g++ Main.cpp-- std=c++20 -fsanitize=undefined
+g++ Main.cpp --std=c++20 -fsanitize=undefined
 
 ## より詳細にデバッグする場合
 g++ Main.cpp --std=c++20 -fsanitize=undefined,address -D_GLIBCXX_DEBUG
