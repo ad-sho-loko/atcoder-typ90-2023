@@ -2,7 +2,8 @@
 using namespace std;
 
 // vector
-template <typename T> ostream &operator<<(ostream &os, vector<T> &vec) {
+template <typename T>
+ostream &operator<<(ostream &os, vector<T> &vec) {
     os << "{";
     for (int i = 0; i < vec.size(); i++) {
         os << vec[i] << (i + 1 == vec.size() ? "" : ", ");
@@ -53,9 +54,7 @@ int main() {
     long long answer = 0;
     for (int k = 0; k <= K; k++) {
         for (int i = 0; i < (int)v1[k].size(); i++) {
-            int idx = lower_bound(v2[K - k].begin(), v2[K - k].end(),
-                                  P - v1[k][i] + 1) -
-                      v2[K - k].begin();
+            int idx = lower_bound(v2[K - k].begin(), v2[K - k].end(), P - v1[k][i] + 1) - v2[K - k].begin();
 
             answer += idx;
         }
