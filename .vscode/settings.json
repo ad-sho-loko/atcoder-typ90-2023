@@ -72,7 +72,8 @@
     "string_view": "cpp",
     "fstream": "cpp",
     "sstream": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "chrono": "cpp"
   },
   "C_Cpp.clang_format_style": "{ BreakBeforeBraces: Attach, IndentWidth: 4 }",
   "cmake.configureOnOpen": false
