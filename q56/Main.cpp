@@ -23,7 +23,6 @@ string dfs(vector<int> &A, vector<int> &B, vector<vector<bool>> &dp, int i, int 
         return "B" + s;
     }
 
-    string a, b;
     if (p - A[i] >= 0 && dp[i - 1][p - A[i]]) {
         return dfs(A, B, dp, i - 1, p - A[i], "A" + s);
     }
