@@ -5,10 +5,11 @@
 using namespace std;
 
 // vector
-template <typename T> ostream &operator<<(ostream &os, vector<T> &vec) {
+template <typename T>
+ostream &operator<<(ostream &os, vector<T> &vec) {
     os << "{";
-    for (int i = 0; i < vec.size(); i++) {
-        os << vec[i] << (i + 1 == vec.size() ? "" : ", ");
+    for (int i = 0; i < (int)vec.size(); i++) {
+        os << vec[i] << (i + 1 == (int)vec.size() ? "" : ", ");
     }
     os << "}";
     return os;
@@ -25,12 +26,10 @@ ostream &operator<<(ostream &os, pair<T, U> &pair_var) {
 template <typename T, typename U>
 ostream &operator<<(ostream &os, map<T, U> &map_var) {
     os << "{";
-    for (typename map<T, U>::iterator itr = map_var.begin();
-         itr != map_var.end(); itr++) {
+    for (typename map<T, U>::iterator itr = map_var.begin(); itr != map_var.end(); itr++) {
         os << "(" << itr->first << ", " << itr->second << ")";
         itr++;
-        if (itr != map_var.end())
-            os << ", ";
+        if (itr != map_var.end()) os << ", ";
         itr--;
     }
     os << "}";
@@ -38,13 +37,13 @@ ostream &operator<<(ostream &os, map<T, U> &map_var) {
 }
 
 // set
-template <typename T> ostream &operator<<(ostream &os, set<T> &set_var) {
+template <typename T>
+ostream &operator<<(ostream &os, set<T> &set_var) {
     os << "{";
     for (auto itr = set_var.begin(); itr != set_var.end(); itr++) {
         os << *itr;
         ++itr;
-        if (itr != set_var.end())
-            os << ", ";
+        if (itr != set_var.end()) os << ", ";
         itr--;
     }
     os << "}";
