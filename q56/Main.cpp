@@ -36,6 +36,7 @@ string dfs(vector<int> &A, vector<int> &B, vector<vector<bool>> &dp, int i, int 
 
 int main() {
     int N, S;
+
     cin >> N >> S;
     vector<int> A(N), B(N);
     for (int i = 0; i < N; i++) {
