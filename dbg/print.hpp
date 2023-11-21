@@ -4,13 +4,6 @@
 #include <vector>
 using namespace std;
 
-// Debug Macro
-#ifdef LOCAL
-#define dbg(x) cerr << __LINE__ << " : " << #x << " = " << (x) << endl
-#else
-#define dbg(x) true
-#endif
-
 // vector
 template <typename T>
 ostream &operator<<(ostream &os, vector<T> &vec) {
