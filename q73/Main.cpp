@@ -4,8 +4,10 @@ using namespace std;
 vector<vector<long long>> dp;
 vector<char> C;
 vector<vector<int>> G;
+long long MOD = 1000000007;
 
 void dfs(int now, int pre) {
+    long long val1 = 1, val2 = 1;
     for (auto next : G[now]) {
         if (pre == next) {
             continue;
@@ -14,22 +16,25 @@ void dfs(int now, int pre) {
         dfs(next, now);
 
         if (C[now] == 'a') {
-            dp[now][0] *= dp[next][0] + dp[next][2];
-        } else {
-            dp[now][1] *= dp[next][1] + dp[next][2];
+            val1 *= (dp[next][0] + dp[next][2]);
+            val2 *= (dp[next][0] + dp[next][1] + 2LL * dp[next][2]);
+        } else if (C[now] == 'b') {
+            val1 *= (dp[next][1] + dp[next][2]);
+            val2 *= (dp[next][0] + dp[next][1] + 2LL * dp[next][2]);
         }
+
+        val1 %= MOD;
+        val2 %= MOD;
     }
 
     if (C[now] == 'a') {
-        dp[now][0] = 1;
-        dp[now][2] = 0;
-        // dp[pos][2] = (val2 - val1 + mod) % mod;
+        dp[now][0] = val1;
+        dp[now][2] = (val2 - val1 + MOD) % MOD;
     }
 
     if (C[now] == 'b') {
-        dp[now][1] = 1;
-        dp[now][2] = 0;
-        // dp[pos][2] = (val2 - val1 + mod) % mod;
+        dp[now][1] = val1;
+        dp[now][2] = (val2 - val1 + MOD) % MOD;
     }
 }
 
@@ -53,5 +58,7 @@ int main() {
     }
 
     dfs(1, -1);
+    cout << dp[1][2] << endl;
+
     return 0;
 }
